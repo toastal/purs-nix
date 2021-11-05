@@ -1,5 +1,5 @@
 with builtins;
-{ pkgs, system }:
+{ extension, pkgs, system }:
   let
     l = p.lib; p = pkgs; u = import ./utils.nix system;
 
@@ -10,7 +10,7 @@ with builtins;
 
     purescript' = easy-ps.purescript;
   in
-  { inherit (import ./build-pkgs.nix { inherit pkgs; utils = u; })
+  { inherit (import ./build-pkgs.nix { inherit extension pkgs; utils = u; })
       build ps-pkgs ps-pkgs-ns;
 
     inherit (pkgs.lib) licenses;

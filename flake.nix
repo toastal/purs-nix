@@ -4,10 +4,11 @@
     with builtins;
     let inputs = import ./inputs.nix; in
     { __functor = _:
-        { pkgs ? (inputs system).pkgs
+        { extension ? _: {}
+        , pkgs ? (inputs system).pkgs
         , system
         }:
-        import ./purs-nix.nix { inherit pkgs system; };
+        import ./purs-nix.nix { inherit extension pkgs system; };
 
       defaultTemplate =
         { description = "A basic purs-nix project";

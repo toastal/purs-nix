@@ -1,4 +1,4 @@
-{ ps-pkgs, ps-pkgs-ns }@pkgs:
+{ extension, ps-pkgs, ps-pkgs-ns }@pkgs:
   with ps-pkgs;
   { argparse-basic =
       { version = "1.0.0";
@@ -116,3 +116,4 @@
            info = /package.nix;
          };
      }
+  // extension ps-pkgs

@@ -1,5 +1,5 @@
 with builtins;
-{ pkgs, utils }:
+{ extension, pkgs, utils }:
   let
     l = p.lib; p = pkgs; u = utils;
 
@@ -65,7 +65,7 @@ with builtins;
         f = self:
           import ./ps-pkgs.nix
             { ps-pkgs = self;
-              inherit ps-pkgs-ns;
+              inherit extension ps-pkgs-ns;
             };
       in
       l.fix
