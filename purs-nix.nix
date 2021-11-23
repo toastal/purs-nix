@@ -121,6 +121,7 @@ with builtins;
                     throw "${name}: there should be a match here!";
 
                 js-path = replaceStrings [ ".purs" ] [ ".js" ] purs-path;
+                nix-path = replaceStrings [ ".purs" ] [ ".nix" ] purs-path;
 
                 subsrc =
                   let
@@ -137,7 +138,7 @@ with builtins;
                   else src' + head matches;
               in
               filterSource
-                (path: _: l.hasSuffix purs-path path || l.hasSuffix js-path path)
+                (path: _: l.hasSuffix purs-path path || l.hasSuffix js-path path || l.hasSuffix nix-path)
                 subsrc;
 
             output = args:
