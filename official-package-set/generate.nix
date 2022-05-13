@@ -1,4 +1,5 @@
 with builtins;
+currentSystem:
 let
   l = p.lib; p = pkgs;
   pkgs = (import ../inputs.nix currentSystem).pkgs;
